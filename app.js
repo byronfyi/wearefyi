@@ -1,9 +1,16 @@
 const btn = document.querySelector('[data-toggle]');
 const nav = document.querySelector('#NavCollapse');
 
-btn.addEventListener('click', toggleCollapse);
+btn.addEventListener('click', toggleMenu);
+nav.addEventListener('click', hideMenu);
 
-function toggleCollapse(e) {
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        hideMenu();
+    }
+});
+
+function toggleMenu(e) {
     (btn.getAttribute('aria-expanded') === 'true')
         ? btn.setAttribute('aria-expanded', 'false')
         : btn.setAttribute('aria-expanded', 'true')
@@ -13,10 +20,8 @@ function toggleCollapse(e) {
     nav.classList.toggle('show');
 }
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        btn.classList.remove('active');
-        nav.classList.remove('show');
-        btn.setAttribute('aria-expanded', 'false');
-    }
-});
+function hideMenu() {
+    btn.classList.remove('active');
+    nav.classList.remove('show');
+    btn.setAttribute('aria-expanded', 'false');
+}
