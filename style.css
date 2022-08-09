@@ -246,6 +246,11 @@ p {
     line-height: 1.4;
 }
 
+.post-image {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
 .social svg {
     display: block;
     width: 1.5rem;
@@ -376,6 +381,11 @@ p {
     .post-main p:first-child {
         font-size: 2rem;
     }
+
+    .post-image {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
 }
 
 @media (min-width: 992px) {
@@ -400,6 +410,6 @@ p {
 
 @media (min-width: 1200px) {
     .container {
-        max-width: 1063px;
+        max-width: 1112px;
     }
 }
