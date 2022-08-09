@@ -15,7 +15,6 @@ function toggleCollapse(e) {
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        nav.classList.remove('show');
         btn.classList.remove('active');
         nav.classList.remove('show');
         btn.setAttribute('aria-expanded', 'false');

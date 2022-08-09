@@ -127,7 +127,7 @@ p {
 .header-nav-collapse {
     background: var(--dark-violet);
     left: 0;
-    display: none;
+    display: flex;
     padding: 1.5rem 1.5rem 2.5rem;
     position: fixed;
     top: 0;
@@ -137,10 +137,14 @@ p {
     background-color: rgba(0, 0, 0, 0.8);
     align-items: center;
     justify-content: center;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .header-nav-collapse.show {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.2s, opacity 0.2s;
 }
 
 .header-nav a {
@@ -198,8 +202,14 @@ p {
 
 .social a {
     display: block;
-    padding: 0.5rem;
+    padding: 0.75rem;
     color: #fff;
+    transition: transform 0.3s;
+}
+
+.social a:hover,
+.social a:focus {
+    transform: scale3d(1.1, 1.1, 1);
 }
 
 .post-article,
@@ -273,7 +283,8 @@ p {
 }
 
 .related-image {
-    max-width: 267px;
+    flex: 1 0 260px;
+    max-width: 260px;
     height: auto;
     display: block;
     margin-right: 2.25rem;
