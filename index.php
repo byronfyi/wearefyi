@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | We Are FYI</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="./app.js" defer></script>
-</head>
-<body>
-
-    <header class="header">
-        <a href="#" class="header-logo">
-            <img src="./images/logo.svg" alt="We Are FYI">
-        </a>
-
-        <button class="hamburger" type="button" data-toggle="" aria-controls="NavCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
-
-        <div class="header-nav-collapse" id="NavCollapse">
-            <nav class="header-nav">
-                <ul class="list-unstyled">
-                    <li><a href="#">Brand</a></li>
-                    <li><a href="#">Studio</a></li>
-                    <li><a href="#">Production</a></li>
-                    <li><a href="#">Activation</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<?php get_header(); ?>
 
     <main>
         <article class="post-article">
@@ -48,15 +15,15 @@
                 </div>
             </div>
     
-            <div class="post-body">
+            <div class="page-body">
                 <div class="container">
                     <div class="hero-image">
-                        <img src="./images/img-feed-3.jpg" alt="" class="img-fluid" width="1064" height="677">
+                        <img src="/wp-content/themes/wearefyi/images/img-feed-3.jpg" alt="" class="img-fluid" width="1064" height="677">
                     </div>
     
                     <div class="post-meta">
                         <div class="post-profile">
-                            <img src="./images/profile.jpg" alt="" width="100" height="100">
+                            <img src="/wp-content/themes/wearefyi/images/profile.jpg" alt="" width="100" height="100">
                         </div>
 
                         <div>
@@ -73,7 +40,7 @@
                         <p>The charity was established by Assistant Head Teacher, Bex Wilson, in 2017 and has since helped thousands of families. “It surprises people how many kids in Leeds don’t have beds. It surprised me!” said Wilson.</p>
 
                         <p class="post-image">
-                            <img src="./images/img-feed-2.jpg" alt="" class="img-fluid" width="1064" height="677">
+                            <img src="/wp-content/themes/wearefyi/images/img-feed-2.jpg" alt="" class="img-fluid" width="1064" height="677">
                         </p>
 
                         <p>The partnership was formed in 2021 and has been running for the last year. During this, FYI have donated digital and print collateral, such as; flyers, wristbands, donation bucket stickers, donation envelopes, thank you certificates and more to help raise the awareness of Zarach and support its services, which saw a surge in demand since the pandemic.</p>
@@ -93,7 +60,7 @@
                         <article class="related-article">
                             <a href="#" class="related-link">
                                 <div class="related-image">
-                                    <img src="./images/img-related-1.jpg" alt="" class="img-fluid">
+                                    <img src="/wp-content/themes/wearefyi/images/img-related-1.jpg" alt="" class="img-fluid">
                                 </div>
             
                                 <div>
@@ -110,7 +77,7 @@
                         <article class="related-article">
                             <a href="#" class="related-link">
                                 <div class="related-image">
-                                    <img src="./images/img-related-2.jpg" alt="" class="img-fluid">
+                                    <img src="/wp-content/themes/wearefyi/images/img-related-2.jpg" alt="" class="img-fluid">
                                 </div>
             
                                 <div>
@@ -127,21 +94,4 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <h2>
-                FOOTER IDEAS<br>
-                COMPANY AD FOR DIRECT LINKING ONLY ON BLOG POSTS
-            </h2>
-                
-            <h2>
-                MAILING SIGNUP<br>
-                LINKS FROM MAIN MENU<br>
-                CONTACTS<br>
-                REVOLUTIONISING
-            </h2>
-        </div>
-    </footer>
-    
-</body>
-</html>
+<?php get_footer(); ?>

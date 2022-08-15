@@ -1,6 +1,8 @@
 const btn = document.querySelector('[data-toggle]');
 const nav = document.querySelector('#NavCollapse');
 
+console.log(btn);
+
 btn.addEventListener('click', toggleMenu);
 nav.addEventListener('click', hideMenu);
 

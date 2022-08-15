@@ -1,15 +1,35 @@
+/*
+ Theme Name:   We Are FYI
+ Version:      1.0.0
+*/
 @import url('normalize.css');
 
 @font-face {
     font-family: "Graphik";
     font-weight: 400;
-    src: url("/fonts/GraphikRegular.otf") format("open-type");
+    src: url("/wp-content/themes/wearefyi/fonts/GraphikRegular.woff2") format("woff2"),
+    url("/wp-content/themes/wearefyi/fonts/GraphikRegular.woff") format("woff");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Graphik";
     font-weight: 700;
-    src: url("/fonts/GraphikBold.otf") format("open-type");
+    src: url("/wp-content/themes/wearefyi/fonts/GraphikBold.woff2") format("woff2"),
+    url("/wp-content/themes/wearefyi/fonts/GraphikBold.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Europa Bold";
+    src: url("/wp-content/themes/wearefyi/fonts/EuropaBold.woff2") format("woff2"),
+    url("/wp-content/themes/wearefyi/fonts/EuropaBold.woff") format("woff");
+    font-display: swap;
+}
+
+:root {
+    --black: #000;
+    --white: #fff;
 }
 
 *, *::before, *::after {
@@ -40,8 +60,13 @@ p {
     padding-right: 1.5rem;
 }
 
+.row {
+    display: flex;
+    flex-direction: column;
+}
+
 .header {
-    background-color: #000;
+    background-color: var(--black);
     display: flex;
     padding: 1.5rem 2rem;
     min-height: 94px;
@@ -88,7 +113,7 @@ p {
 .hamburger-inner,
 .hamburger-inner::after,
 .hamburger-inner::before {
-    background-color: #fff;
+    background-color: var(--white);
     display: block;
     height: 2px;
     position: absolute;
@@ -148,7 +173,7 @@ p {
 }
 
 .header-nav a {
-    color: #fff;
+    color: var(--white);
     display: block;
     font-size: 1.875rem;
     font-weight: 700;
@@ -166,22 +191,86 @@ p {
 }
 
 .hero {
-    background-color: #000;
+    background-color: var(--black);
     padding: 4.5rem 0 7rem;
 }
 
+.hero.home-hero {
+    min-height: calc(100vh - 94px);
+    display: flex;
+    align-items: center;
+    padding: 0 0 94px;
+}
+
 .hero-title {
-    font-size: 2rem;
+    font-size: 1.625rem;
     margin: 0;
-    color: #fff;
+    color: var(--white);
     text-align: center;
     max-width: 960px;
     margin: 0 auto 3rem;
 }
 
+.home {
+    background-color: var(--black);
+}
+
+.home-title {
+    /*background-image: linear-gradient(315deg, #ffe600 0%, #ff4f00 100%);
+    background-clip: text;
+    display: inline-block;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
+}
+
 .hero-image {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
+}
+
+.home-hero-image {
+    background-color: var(--black);
+}
+
+.home-hero-image img {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1.5rem;
+}
+
+.home-text h2 {
+    font-family: 'Europa Bold', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    position: relative;
+    padding-top: 1rem;
+}
+
+.home-text h2::before {
+    content: '';
+    display: block;
+    width: 42px;
+    height: 4px;
+    background-color: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.home-text p {
+    font-size: 1.125rem;
+}
+
+.home-image {
+    margin-bottom: 5rem;
 }
 
 .social {
@@ -203,7 +292,7 @@ p {
 .social a {
     display: block;
     padding: 0.75rem;
-    color: #fff;
+    color: var(--white);
     transition: transform 0.3s;
 }
 
@@ -217,8 +306,16 @@ p {
     margin-bottom: 10rem;
 }
 
-.post-body {
+.page-article {
+    padding-top: 5rem;
+}
+
+.page-body {
     font-size: 1rem;
+}
+
+.home-body {
+    padding: 10rem 0;
 }
 
 .post-meta {
@@ -230,6 +327,9 @@ p {
 .post-profile {
     margin-right: 1.25rem;
     max-width: 70px;
+    border-radius: 70px;
+    background-color: #f1f1f1;
+    padding: 0.5rem;
 }
 
 .post-profile img {
@@ -251,7 +351,7 @@ p {
     margin-bottom: 0;
 }
 
-.post-main p:first-child {
+.post-main > p:first-child {
     font-size: 1.5rem;
     line-height: 1.4;
 }
@@ -270,7 +370,7 @@ p {
 .related-link {
     display: flex;
     text-decoration: none;
-    color: #000;
+    color: var(--black);
 }
 
 .related-link:hover .related-title,
@@ -283,12 +383,12 @@ p {
 }
 
 .related-image {
-    flex: 1 0 260px;
-    max-width: 260px;
     height: auto;
     display: block;
-    margin-right: 2.25rem;
     overflow: hidden;
+    flex: 1 0 25%;
+    max-width: 25%;
+    margin-right: 1rem;
 }
 
 .related-image img {
@@ -300,15 +400,68 @@ p {
     transform: scale3d(1.1, 1.1, 1);
 }
 
+.related-title {
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+.related-author {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+.related-time {
+    font-size: 0.75rem;
+}
+
 .footer {
-    background-color: #000;
+    background-color: var(--black);
     text-align: right;
     padding: 10rem 0;
 }
 
 .footer h2 {
     font-weight: 700;
-    color: #fff;
+    color: var(--white);
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    height: 44px;
+    width: 190px;
+    border-radius: 44px;
+    border: 1px solid var(--white);
+    text-decoration: none;
+    margin: 0.75rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.enhanced .revealer {
+    opacity: 0;
+    transform: translate3d(0, 4rem, 0);
+    transition: opacity 1s, transform 1s;
+}
+
+.revealer.revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
 
 .sr-only {
@@ -328,6 +481,23 @@ p {
     display: block;
 }
 
+.w-full {
+    width: 100%;
+}
+
+.bg-dark {
+    background-color: var(--black);
+}
+
+.text-light {
+    color: var(--white);
+}
+
+.my-5 {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
 .fade-1 {
     animation: .5s .25s fade backwards ease-out;
 }
@@ -338,7 +508,7 @@ p {
 
 @keyframes fade {
     from {
-        transform: translate3d(0, -1rem, 0);
+        transform: translate3d(0, 1rem, 0);
         opacity: 0;
     }
 }
@@ -351,6 +521,10 @@ p {
     .hero {
         padding: 4rem 0 12.5rem;
         min-height: 480px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
     }
 
     .hero-image {
@@ -386,7 +560,7 @@ p {
         margin-top: -200px;
     }
 
-    .post-body {
+    .page-body {
         font-size: 1.25rem;
     }
 
@@ -401,16 +575,43 @@ p {
     
     .post-profile {
         max-width: 100px;
+        padding: 0.75rem;
     }
 
     .related-title,
-    .post-main p:first-child {
+    .post-main > p:first-child {
         font-size: 2rem;
     }
 
     .post-image {
         margin-top: 5rem;
         margin-bottom: 5rem;
+    }
+
+    .home-text {
+        padding: 0 3rem;
+    }
+
+    .home-text h2 {
+        font-size: 3rem;
+    }
+
+    .related-image {
+        margin-right: 1.5rem;
+    }
+
+    .related-title {
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+
+    .related-author {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .related-time {
+        font-size: 0.875rem;
     }
 }
 
@@ -419,23 +620,64 @@ p {
         max-width: 960px;
     }
 
+    .row {
+        flex-direction: row;
+    }
+
+    .row-reverse {
+        flex-direction: row-reverse;
+    }
+
+    .col {
+        flex: 1 0 50%;
+        max-width: 50%;
+    }
+
     .hero {
-        padding: 8rem 0;
+        padding: 8rem 0 24rem;
         min-height: 700px;
     }
     
-
     .hero-title {
         font-size: 3rem;
     }
 
+    .home-title {
+        font-size: 2.25rem;
+    }
+
     .hero-image {
         margin-top: -300px;
+    }
+
+    .home-text {
+        padding: 0 6.25rem;
+    }
+
+    .related-image {
+        margin-right: 2rem;
+    }
+
+    .related-title {
+        font-size: 2rem;
+    }
+
+    .related-author {
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
     }
 }
 
 @media (min-width: 1200px) {
     .container {
         max-width: 1112px;
+    }
+
+    .container.home-container {
+        max-width: 1600px;
+    }
+
+    .home-text h2 {
+        font-size: 4.5rem;
     }
 }
