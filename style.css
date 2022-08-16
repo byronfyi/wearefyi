@@ -650,6 +650,10 @@ p {
         margin-top: -300px;
     }
 
+    .home-image {
+        margin-bottom: 0;
+    }
+
     .home-text {
         padding: 0 6.25rem;
     }
